@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block styles %}{{ style }}{% endblock %}
+{% block page_head_title %}{{ title }}{% endblock %}
+{% block page_title %}{{ title }}{% endblock %}
+{% block page_header %}{{ header }}{% endblock %}
+{% block page_header_right %}
+{% if cover %}
+    <img src="{{ cover }}" alt="">
+{% else %}
+    (no cover)
+{% endif %}
+{% endblock %}
+{% block page_content %}{{ content }}{% endblock %}
+{% block page_footer %}{{ footer }}{% endblock %}
+
