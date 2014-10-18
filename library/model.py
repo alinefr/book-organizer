@@ -21,7 +21,8 @@ class Books( Entity ):
     cover = Column( camelot.types.Image( upload_to = 'covers' ) )
 
     author = ManyToMany( 'Author', tablename = 'books_author', local_colname = 'author_id', remote_colname = 'books_id' )
-    
+    translator = ManyToOne( 'Author', backref = 'translated_books' )
+        
     publisher = ManyToOne( 'Publisher', required = True, backref = 'books' )
 
     class Admin( EntityAdmin ):
@@ -68,6 +69,7 @@ class Author( Entity ):
     biographyurl = Column( String(200) )
 
     books = ManyToMany( 'Books', tablename = 'books_author', local_colname = 'books_id', remote_colname = 'author_id' )
+    translated_books = OneToMany( 'Books' )
 
     class Admin( EntityAdmin ):
         verbose_name = 'Author'
