@@ -1,4 +1,4 @@
-Books Organizer
+Book Organizer
 ===============
 
 This is a book collection organizer. 
