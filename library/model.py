@@ -16,7 +16,7 @@ class Books( Entity ):
     title = Column( Unicode(60), nullable = False )
     isbn = Column( Unicode(13) )
     pages = Column( Integer(4) )
-    first_release_date = Column( Date() )
+    copyright_year = Column( Integer )
     genre = Column( Unicode(15) )
     cover = Column( camelot.types.Image( upload_to = 'covers' ) )
 
@@ -31,7 +31,7 @@ class Books( Entity ):
         list_display = ['title', 
                         'isbn',
                         'pages',
-                        'first_release_date',
+                        'copyright_year',
                         'genre',
                         'cover',
                         'author',
@@ -41,7 +41,7 @@ class Books( Entity ):
         form_display = ['title',
                         'isbn',
                         'pages',
-                        'first_release_date',
+                        'copyright_year',
                         'genre',
                         'cover',
                         'author',
@@ -105,7 +105,7 @@ class Publisher( Entity ):
                          'countrycode',
                          'location' ]
 
-        form_display = list_display + ['publisher']
+        form_display = list_display + ['books']
 
         def __unicode__( self ):
             return self.name or 'unknown publisher'

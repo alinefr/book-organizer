@@ -15,8 +15,7 @@ class MyApplicationAdmin(ApplicationAdmin):
     def get_sections(self):
         from camelot.model.memento import Memento
         from camelot.model.i18n import Translation
-        from library.model import Author
-        from library.model import Books
+        from library.model import Author, Books, Publisher
         from library.importer import ImportCovers
         return [ 
             Section( _('Books'),
@@ -24,6 +23,7 @@ class MyApplicationAdmin(ApplicationAdmin):
                 Icon('tango/22x22/mimetypes/x-office-presentation.png'),
                 items = [ Books, 
                           Author,
+                          Publisher,
                           ImportCovers() ] ),
             Section( _('Configuration'),
                 self,

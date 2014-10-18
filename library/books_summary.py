@@ -15,7 +15,7 @@ class BooksSummary( Action ):
 
         fileloader = FileSystemLoader(resource_filename(library.__name__, 'templates'))
         e = Environment(loader=fileloader)
-        movie = model_context.get_object()
+        books = model_context.get_object()
         context = {
                 'header':books.title,
                 'title':'Book Summary',
@@ -29,9 +29,9 @@ class BooksSummary( Action ):
                         <span class="label">Translator:</span> {}\
                         <span class="label">Publisher:</span> {}'\
                         .format(books.author, books.isbn, books.pages,\
-                        books.first_release_date, books.genre, books.cover,\
+                        books.copyright_year, books.genre, books.cover,\
                         books.translator, books.publisher),
-                'cover': os.path.join( settings.CAMELOT_MEDIA_ROOT(), 'covers', books.cover_image.name ),
+                # 'cover': os.path.join( settings.CAMELOT_MEDIA_ROOT(), 'covers', books.cover ),
                 'footer':'<br>copyright {} - Aline Freitas'.format(datetime.datetime.now().year)
         }
         t = e.get_template('books_summary.html')
