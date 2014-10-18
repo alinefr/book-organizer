@@ -14,7 +14,7 @@ class Books( Entity ):
     __tablename__ = 'books'
 
     title = Column( Unicode(60), nullable = False )
-    isbn = Column( Integer(13) )
+    isbn = Column( Unicode(13) )
     pages = Column( Integer(4) )
     first_release_date = Column( Date() )
     genre = Column( Unicode(15) )
@@ -47,6 +47,8 @@ class Books( Entity ):
                         'author',
                         'translator',
                         'publisher']
+
+        field_atributes = {'isbn':{'column_width':13}}
 
         form_actions = [
                 BooksSummary()

@@ -23,9 +23,9 @@ setup(
     url = 'http://books-organizer.alinefreitas.com.br',
     include_package_data = True,
     packages = find_packages(),
-    py_modules = ['settings', 'main'],
+    py_modules = ['settings', 'books'],
     entry_points = {'gui_scripts':[
-                     'main = main:start_application',
+                     'books = books:start_application',
                     ],},
     options = {
         'bdist_cloud':{'revision':'0',
